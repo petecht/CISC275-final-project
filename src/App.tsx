@@ -30,7 +30,10 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
+        
+        
         </p>
+        <p>Ryan Koller</p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -40,6 +43,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <div>Paul Edelman</div>
       <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
@@ -51,3 +55,5 @@ function App() {
 }
 
 export default App;
+
+// Added name: "Ryan Koller" (3/18/25)
