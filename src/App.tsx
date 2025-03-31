@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Button, Form } from 'react-bootstrap';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './styles/App.css';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import BasicQuiz from './pages/BasicQuiz';
+import DetailedQuiz from './pages/DetailedQuiz';
+import { Form, Button } from 'react-bootstrap';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -13,46 +17,56 @@ if (prevKey !== null) {
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
+  const [isKeySubmitted, setIsKeySubmitted] = useState<boolean>(prevKey !== null);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
-    window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
+    setIsKeySubmitted(true);
+    // window.location.reload(); // Removed reload as we'll handle state within React
   }
 
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+  // If key is not submitted yet, show the API key input form
+  if (!isKeySubmitted) {
+    return (
+      <div className="api-key-container">
+        <h1>Career Quiz Application</h1>
+        <p>Please enter your API key to continue</p>
+        <Form>
+          <Form.Label>API Key:</Form.Label>
+          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+          <br></br>
+          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+        </Form>
+        <div className="team-info">
+          <p>Ryan Koller</p>
+          <p>Peter Chapman</p>
+          <p>Shaurya Kumar</p>
+          <p>Paul Edelman</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Main application with routing
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        
-        
-        </p>
-        <p>Ryan Koller</p>
-        <p>Peter Chapman</p>
-        <p>Shaurya Kumar</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <div>Paul Edelman</div>
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form>
-    </div>
+    <Router>
+      <div className="app">
+        <Navbar />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/basic-quiz" element={<BasicQuiz />} />
+            <Route path="/detailed-quiz" element={<DetailedQuiz />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 
