@@ -17,7 +17,7 @@ function Home() {
               Basic
             </Link>
             <p className="option-description">
-              A few short and simple questions to give a generic direction towards possible careers
+              Seven short and simple questions to give a generic direction towards possible career areas
             </p>
           </div>
           
@@ -26,7 +26,7 @@ function Home() {
               Detailed
             </Link>
             <p className="option-description">
-              Same short length as the basic quiz, but with more detailed questions to receive more precise results
+              Same short length as the basic quiz, but with more detailed questions to receive more precise careers
             </p>
           </div>
         </div>
