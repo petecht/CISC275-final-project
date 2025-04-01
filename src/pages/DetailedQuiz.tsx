@@ -67,7 +67,7 @@ function DetailedQuiz() {
 
       <div className="question-container">
         <h3>Question 6:</h3>
-        <p>Which environment do you prefer working in?</p>
+        <p>What motivates you the most at a job?</p>
         <div className="options">
           <button className="option-button">High salary and financial success</button>
           <button className="option-button">Passion and purpose</button>
