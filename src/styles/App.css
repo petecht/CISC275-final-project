@@ -1,13 +1,16 @@
 .app {
-  font-family: Arial, sans-serif;
-  max-width: 1200px;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0;
+  color: #333;
 }
 
 .content {
-  padding: 20px;
-  background-color: #f5f5f5;
+  padding: 0;
+  background-color: #f5f8fa;
   min-height: calc(100vh - 70px);
 }
 
@@ -17,22 +20,70 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  padding: 20px;
+  padding: 40px 20px;
   text-align: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.api-key-container h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #2C3E50;
+  font-weight: 700;
+}
+
+.api-key-container p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #555;
+  max-width: 600px;
 }
 
 .api-key-container form {
   width: 100%;
   max-width: 400px;
   margin: 20px 0;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.api-key-container form label {
+  font-weight: 500;
+  color: #2C3E50;
+  margin-bottom: 10px;
+  display: block;
+  text-align: left;
 }
 
 .Submit-Button {
-  background-color: #4a90e2;
-  border: none;
+  background: linear-gradient(90deg, #2C3E50, #4CA1AF) !important;
+  border: none !important;
+  padding: 12px 25px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(76, 161, 175, 0.3) !important;
+  margin-top: 10px !important;
+}
+
+.Submit-Button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(76, 161, 175, 0.4) !important;
 }
 
 .team-info {
-  margin-top: 40px;
+  margin-top: 60px;
   color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.team-info p {
+  margin: 5px 0;
 } 
