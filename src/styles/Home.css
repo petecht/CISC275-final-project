@@ -1,52 +1,98 @@
 .home-container {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 40px 20px;
+  min-height: calc(100vh - 64px);
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 .quiz-content {
-  max-width: 800px;
+  max-width: 1000px;
   width: 100%;
 }
 
 .quiz-title {
-  font-size: 42px;
+  font-size: 48px;
   margin-bottom: 20px;
   text-align: center;
+  background: linear-gradient(90deg, #2C3E50, #4CA1AF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
 }
 
 .quiz-description {
-  font-size: 18px;
-  margin-bottom: 40px;
+  font-size: 20px;
+  margin-bottom: 60px;
   text-align: center;
+  color: #555;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .quiz-options {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   gap: 40px;
   margin-top: 50px;
+  flex-wrap: wrap;
 }
 
 .quiz-option {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 300px;
+  max-width: 320px;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.quiz-option:hover {
+  transform: translateY(-10px);
 }
 
 .quiz-button {
-  display: block;
-  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 180px;
   padding: 30px;
-  background-color: #ccc;
-  color: black;
+  background: white;
+  color: #333;
   text-decoration: none;
   text-align: center;
   font-size: 32px;
+  font-weight: 600;
   margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #2C3E50, #4CA1AF);
+}
+
+.quiz-button:hover {
+  box-shadow: 0 10px 40px rgba(76, 161, 175, 0.3);
+  color: #2C3E50;
 }
 
 .option-description {
   text-align: center;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 0 15px;
 } 
