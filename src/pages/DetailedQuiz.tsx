@@ -202,6 +202,68 @@ function DetailedQuiz() {
           </div>
         </div>
       )}
+
+      {currentStep === 8 && (
+        <div className="question-container">
+          <p><b>Question 8: </b>How important is retiring early to you?</p>
+          <div className="options">
+            {['Very important to me',
+              'Somewhat important to me',
+              'Not a priority'].map((option) => (
+              <button
+                key={option}
+                className={getOptionClass(8, option)}
+                onClick={() => handleOptionSelect(8, option)}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+
+      {currentStep === 9 && (
+        <div className="question-container">
+          <p><b>Question 9: </b>How many years of higher education do you desire?</p>
+          <div className="options">
+            {['0-2',
+              '2-4',
+              '4-6',
+            '6+'].map((option) => (
+              <button
+                key={option}
+                className={getOptionClass(9, option)}
+                onClick={() => handleOptionSelect(9, option)}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+
+      {currentStep === 10 && (
+        <div className="question-container">
+          <p><b>Question 10: </b>What is your ideal entry-level salary?</p>
+          <div className="options">
+            {['$60,000-$70,000',
+              '$70,000-$80,000',
+              '$80,000-$90,000',
+              '$90,000-$100,000',
+              'Salary is not that important to me'].map((option) => (
+              <button
+                key={option}
+                className={getOptionClass(10, option)}
+                onClick={() => handleOptionSelect(10, option)}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
       
       <div className="quiz-navigation">
         {currentStep > 1 && (
