@@ -66,8 +66,7 @@ function BasicQuiz() {
       
       {currentStep === 1 && (
         <div className="question-container">
-          <h3>Question 1:</h3>
-          <p>Do you prefer working with people or working alone?</p>
+          <p><b>Question 1: </b>Do you prefer working with people or working alone?</p>
           <div className="options">
             <button 
               className={getOptionClass(1, 'With people')} 
@@ -93,8 +92,7 @@ function BasicQuiz() {
       
       {currentStep === 2 && (
         <div className="question-container">
-          <h3>Question 2:</h3>
-          <p>Are you more interested in creative or analytical work?</p>
+          <p><b>Question 2: </b>Are you more interested in creative or analytical work?</p>
           <div className="options">
             <button 
               className={getOptionClass(2, 'Creative')}
@@ -120,8 +118,7 @@ function BasicQuiz() {
 
       {currentStep === 3 && (
         <div className="question-container">
-          <h3>Question 3:</h3>
-          <p>How do you prefer to solve problems?</p>
+          <p><b>Question 3: </b>How do you prefer to solve problems?</p>
           <div className="options">
             <button 
               className={getOptionClass(3, 'Following established procedures')}
@@ -147,8 +144,7 @@ function BasicQuiz() {
 
       {currentStep === 4 && (
         <div className="question-container">
-          <h3>Question 4:</h3>
-          <p>Which work environment do you prefer?</p>
+          <p><b>Question 4: </b>Which work environment do you prefer?</p>
           <div className="options">
             <button 
               className={getOptionClass(4, 'Fast-paced and dynamic')}
@@ -174,8 +170,7 @@ function BasicQuiz() {
 
       {currentStep === 5 && (
         <div className="question-container">
-          <h3>Question 5:</h3>
-          <p>How important is work-life balance to you?</p>
+          <p><b>Question 5: </b>How important is work-life balance to you?</p>
           <div className="options">
             <button 
               className={getOptionClass(5, 'Very important')}
@@ -201,8 +196,7 @@ function BasicQuiz() {
 
       {currentStep === 6 && (
         <div className="question-container">
-          <h3>Question 6:</h3>
-          <p>Do you prefer leading others or executing tasks yourself?</p>
+          <p><b>Question 6: </b>Do you prefer leading others or executing tasks yourself?</p>
           <div className="options">
             <button 
               className={getOptionClass(6, 'Leading others')}
@@ -228,8 +222,7 @@ function BasicQuiz() {
 
       {currentStep === 7 && (
         <div className="question-container">
-          <h3>Question 7:</h3>
-          <p>Which type of recognition motivates you most?</p>
+          <p><b>Question 7: </b>Which type of recognition motivates you most?</p>
           <div className="options">
             <button 
               className={getOptionClass(7, 'Financial rewards')}

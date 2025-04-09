@@ -66,8 +66,7 @@ function DetailedQuiz() {
       
       {currentStep === 1 && (
         <div className="question-container">
-          <h3>Question 1:</h3>
-          <p>On a scale of 1-5, how much do you enjoy problem-solving activities?</p>
+          <p><b>Question 1: </b>On a scale of 1-5, how much do you enjoy problem-solving activities?</p>
           <div className="options">
             {[1, 2, 3, 4, 5].map((value) => (
               <button 
@@ -84,8 +83,7 @@ function DetailedQuiz() {
       
       {currentStep === 2 && (
         <div className="question-container">
-          <h3>Question 2:</h3>
-          <p>Which environment do you prefer working in?</p>
+          <p><b>Question 2: </b>Which environment do you prefer working in?</p>
           <div className="options">
             {['Office setting', 'Outdoors', 'Laboratory', 'Remote/home', 'Various locations'].map((option) => (
               <button 
@@ -102,8 +100,7 @@ function DetailedQuiz() {
 
       {currentStep === 3 && (
         <div className="question-container">
-          <h3>Question 3:</h3>
-          <p>Which of these job roles appeals to you the most?</p>
+          <p><b>Question 3: </b>Which of these job roles appeals to you the most?</p>
           <div className="options">
             {[
               'Leader/Manager', 
@@ -125,8 +122,7 @@ function DetailedQuiz() {
 
       {currentStep === 4 && (
         <div className="question-container">
-          <h3>Question 4:</h3>
-          <p>How important is job stability to you?</p>
+          <p><b>Question 4: </b>How important is job stability to you?</p>
           <div className="options">
             {[
               'Very important to me', 
@@ -147,8 +143,7 @@ function DetailedQuiz() {
 
       {currentStep === 5 && (
         <div className="question-container">
-          <h3>Question 5:</h3>
-          <p>Would you rather work for...</p>
+          <p><b>Question 5: </b>Would you rather work for...</p>
           <div className="options">
             {[
               'A large corporation', 
@@ -171,8 +166,7 @@ function DetailedQuiz() {
 
       {currentStep === 6 && (
         <div className="question-container">
-          <h3>Question 6:</h3>
-          <p>What motivates you the most at a job?</p>
+          <p><b>Question 6: </b>What motivates you the most at a job?</p>
           <div className="options">
             {[
               'High salary and financial success', 
@@ -194,8 +188,7 @@ function DetailedQuiz() {
 
       {currentStep === 7 && (
         <div className="question-container">
-          <h3>Question 7:</h3>
-          <p>Do you enjoy learning new skills regularly?</p>
+          <p><b>Question 7: </b>Do you enjoy learning new skills regularly?</p>
           <div className="options">
             {['Yes', 'No', 'Sometimes'].map((option) => (
               <button 
