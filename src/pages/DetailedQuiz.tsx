@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/Quiz.css';
+import ResultSection from './Results';
+import { ChatMessage } from './Results';
+import axios from 'axios';
 
 interface QuestionAnswer {
   questionId: number;
@@ -10,6 +13,33 @@ function DetailedQuiz() {
   const [answers, setAnswers] = useState<QuestionAnswer[]>([]);
   const [currentStep, setCurrentStep] = useState<number>(1);
   const totalSteps = 7;
+
+  const [results, setResults] = useState<ChatMessage[]>([]);
+
+  const handleSubmit = () => {
+    // Here you would send the answers to the backend or process them
+    console.log('Submitted answers:', answers);
+    const sendMessage = async () => {
+      const answersText = `Repeat these back to me: ${answers.map((answer: QuestionAnswer) => answer.answer).join("\n")}`; //Placeholder until we figure out prompt
+
+      const userMessage: ChatMessage = { role: 'user', content: answersText};
+      setResults([...results, userMessage]);
+
+      try {
+        const res = await axios.post('http://localhost:5000/chat', {
+          message: answersText,
+        });
+
+        const botMessage: ChatMessage = { role: 'assistant', content: res.data.reply };
+        setResults(prev => [...prev, botMessage]);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    sendMessage();
+    alert('Thank you for completing the quiz! Your results would be processed here.');
+  };
 
   const handleOptionSelect = (questionId: number, answer: string) => {
     const newAnswers = [...answers];
@@ -46,12 +76,6 @@ function DetailedQuiz() {
       setCurrentStep(currentStep - 1);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  };
-
-  const handleSubmit = () => {
-    // Here you would send the answers to the backend or process them
-    console.log('Submitted answers:', answers);
-    alert('Thank you for completing the detailed quiz! Your results would be processed here.');
   };
 
   return (
@@ -290,6 +314,7 @@ function DetailedQuiz() {
           </button>
         )}
       </div>
+      <ResultSection displayResults={results.length !== 0} results={results}></ResultSection>
     </div>
   );
 }
