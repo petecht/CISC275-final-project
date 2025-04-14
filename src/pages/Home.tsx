@@ -26,7 +26,7 @@ function Home() {
               Detailed
             </Link>
             <p className="option-description">
-              Same short length as the basic quiz, but with more detailed questions to receive more precise careers
+              Ten detailed and specific questions to receive more precise careers and education advice
             </p>
           </div>
         </div>

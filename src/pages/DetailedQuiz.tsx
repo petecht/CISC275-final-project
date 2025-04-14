@@ -12,7 +12,7 @@ interface QuestionAnswer {
 function DetailedQuiz() {
   const [answers, setAnswers] = useState<QuestionAnswer[]>([]);
   const [currentStep, setCurrentStep] = useState<number>(1);
-  const totalSteps = 7;
+  const totalSteps = 10;
 
   const [results, setResults] = useState<ChatMessage[]>([]);
 
