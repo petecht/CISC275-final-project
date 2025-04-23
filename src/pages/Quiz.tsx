@@ -10,7 +10,6 @@ function Quiz({quizType, questions, options, description}: {quizType: string, qu
     results,
     totalSteps,
     handleOptionSelect,
-    isOptionSelected,
     getOptionClass,
     handleNext,
     handlePrevious,
