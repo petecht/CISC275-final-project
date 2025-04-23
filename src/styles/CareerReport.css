@@ -1,0 +1,226 @@
+.career-report {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease;
+}
+
+.career-report h2 {
+  text-align: center;
+  color: #2C3E50;
+  margin-bottom: 25px;
+  font-size: 28px;
+  border-bottom: 2px solid #4CA1AF;
+  padding-bottom: 10px;
+}
+
+.report-section {
+  margin-bottom: 30px;
+}
+
+.report-section h3 {
+  color: #2C3E50;
+  font-size: 22px;
+  margin-bottom: 15px;
+  border-left: 4px solid #4CA1AF;
+  padding-left: 10px;
+}
+
+/* Career and Education Cards */
+.career-card, .education-card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.career-card:hover, .education-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.career-header, .education-header {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: linear-gradient(90deg, #f8f9fa, #e9ecef);
+}
+
+.career-header h4, .education-header h4 {
+  margin: 0;
+  color: #2C3E50;
+  font-weight: 600;
+}
+
+.expand-icon {
+  transition: transform 0.3s ease;
+  color: #4CA1AF;
+  font-size: 12px;
+}
+
+.expand-icon.expanded {
+  transform: rotate(180deg);
+}
+
+.career-details, .education-details {
+  padding: 20px;
+  border-top: 1px solid #e9ecef;
+  animation: slideDown 0.3s ease;
+}
+
+/* Charts and Visualizations */
+.bar-container {
+  margin: 20px 0;
+}
+
+.bar-chart {
+  height: 20px;
+  background-color: #e9ecef;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-fill {
+  background: linear-gradient(90deg, #4CA1AF, #2C3E50);
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.cost-fill {
+  background: linear-gradient(90deg, #2C3E50, #4CA1AF);
+}
+
+.median-marker {
+  position: absolute;
+  top: 0;
+  width: 3px;
+  height: 20px;
+  background-color: #fff;
+  border: 1px solid #333;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.chart-title {
+  font-weight: 600;
+  color: #2C3E50;
+  margin-bottom: 10px;
+}
+
+.outlook-meter {
+  height: 20px;
+  background-color: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.outlook-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff9d6c, #ff7e5f);
+  border-radius: 10px;
+}
+
+.outlook-label {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Lists */
+.insights-list, .resources-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.insights-list li, .resources-list li {
+  padding: 10px 15px;
+  background-color: #f8f9fa;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border-left: 3px solid #4CA1AF;
+}
+
+.required-education ul, .education-institutions ul {
+  padding-left: 20px;
+}
+
+.required-education li, .education-institutions li {
+  margin-bottom: 5px;
+}
+
+.required-education h5, .education-time h5, .education-institutions h5, .job-demand h5 {
+  color: #2C3E50;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+/* Loading State */
+.career-report-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4CA1AF;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideDown {
+  0% { 
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .career-report {
+    padding: 15px;
+  }
+  
+  .chart-labels {
+    font-size: 12px;
+  }
+  
+  .career-header h4, .education-header h4 {
+    font-size: 18px;
+  }
+} 
