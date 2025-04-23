@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/Quiz.css';
 import { useQuiz } from '../components/useQuiz';
 import ResultSection from './Results';
+import CareerReport from './CareerReport';
 
 function Quiz({quizType, questions, options, description}: {quizType: string, questions: string[], options: string[][], description: string}) {
   const {
@@ -13,7 +14,9 @@ function Quiz({quizType, questions, options, description}: {quizType: string, qu
     getOptionClass,
     handleNext,
     handlePrevious,
-    handleSubmit
+    handleSubmit,
+    careerReport,
+    isLoading
   } = useQuiz(questions.length);
 
   const renderQuestion = () => {
@@ -42,37 +45,47 @@ function Quiz({quizType, questions, options, description}: {quizType: string, qu
       <h1>{quizType} Career Quiz</h1>
       <p>{description}</p>
 
-      <div className="progress-bar">
-        <div className="progress" style={{ width: `${(currentStep / totalSteps) * 100}%` }}></div>
-        <div className="step-text">{currentStep} of {totalSteps}</div>
-      </div>
+      {!careerReport && !isLoading && (
+        <>
+          <div className="progress-bar">
+            <div className="progress" style={{ width: `${(currentStep / totalSteps) * 100}%` }}></div>
+            <div className="step-text">{currentStep} of {totalSteps}</div>
+          </div>
 
-      {renderQuestion()}
+          {renderQuestion()}
 
-      <div className="quiz-navigation">
-        {currentStep > 1 && (
-          <button className="nav-button prev-button" onClick={handlePrevious}>Previous</button>
-        )}
-        {currentStep < totalSteps ? (
-          <button
-            className="nav-button next-button"
-            onClick={handleNext}
-            disabled={!answers.some(a => a.questionId === currentStep)}
-          >
-            Next
-          </button>
-        ) : (
-          <button
-            className="submit-button"
-            onClick={handleSubmit}
-            disabled={answers.length < totalSteps}
-          >
-            Submit Answers
-          </button>
-        )}
-      </div>
+          <div className="quiz-navigation">
+            {currentStep > 1 && (
+              <button className="nav-button prev-button" onClick={handlePrevious}>Previous</button>
+            )}
+            {currentStep < totalSteps ? (
+              <button
+                className="nav-button next-button"
+                onClick={handleNext}
+                disabled={!answers.some(a => a.questionId === currentStep)}
+              >
+                Next
+              </button>
+            ) : (
+              <button
+                className="submit-button"
+                onClick={handleSubmit}
+                disabled={answers.length < totalSteps}
+              >
+                Generate Career Report
+              </button>
+            )}
+          </div>
+        </>
+      )}
 
-      <ResultSection displayResults={results.length !== 0} results={results} />
+      {(careerReport || isLoading) && (
+        <CareerReport report={careerReport} isLoading={isLoading} />
+      )}
+
+      {results.length > 0 && !careerReport && !isLoading && (
+        <ResultSection displayResults={true} results={results} />
+      )}
     </div>
   );
 }
