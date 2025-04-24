@@ -1,6 +1,34 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
 import '../styles/Navbar.css';
+
+function DarkModeSwitch(): JSX.Element {
+  const [isDarkMode, setDarkMode] = useState<boolean>(true);
+
+  function updateDarkMode(event: React.ChangeEvent<HTMLInputElement>) {
+    setDarkMode(event.target.checked)
+  }
+
+  return (
+    <div className="dark-mode-container">
+      <Form.Label
+        htmlFor="is-dark-mode-check"
+        className="cursor-pointer mb-0"
+      >
+        Dark Mode?
+      </Form.Label>
+      <Form.Check
+        type="switch"
+        id="is-dark-mode-check"
+        checked={isDarkMode}
+        onChange={updateDarkMode}
+        className="switch-pointer m-0"
+      />
+    </div>
+  );  
+}
 
 function Navbar() {
   const location = useLocation();
@@ -20,8 +48,7 @@ function Navbar() {
         <Link to="/detailed-quiz" className={isActiveLink('/detailed-quiz')}>Detailed Quiz</Link>
       </div>
       <div className="auth-section">
-        <span className="auth-link">Login/Sign up</span>
-        <div className="profile-icon-placeholder">👤</div>
+        <DarkModeSwitch/>
       </div>
     </nav>
   );

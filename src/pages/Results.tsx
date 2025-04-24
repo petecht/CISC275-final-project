@@ -4,9 +4,9 @@ import '../styles/Quiz.css';
 export interface ChatMessage {
     role: 'user' | 'assistant';
     content: string;
-  }
+}
 
-function ResultSection({displayResults, results}: {displayResults: boolean, results: ChatMessage[]}) {
+function ResultContainer({displayResults, results}: {displayResults: boolean, results: ChatMessage[]}) {
     return (
         <div>
             {displayResults && 
@@ -20,4 +20,4 @@ function ResultSection({displayResults, results}: {displayResults: boolean, resu
     );
 }
 
-export default ResultSection; 
+export default ResultContainer; 

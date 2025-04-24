@@ -68,53 +68,28 @@
   width: 100%;
 }
 
-.auth-section {
+.dark-mode-container {
   display: flex;
+  justify-content: center;
   align-items: center;
+  cursor: pointer;
   gap: 15px;
 }
 
-.auth-link {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
+.cursor-pointer {
   cursor: pointer;
-  transition: color 0.3s ease;
+  margin-bottom: 0;
 }
 
-.auth-link:hover {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.profile-icon {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
- }
- 
- 
- .profile-icon-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-  width: 36px;
-  height: 36px;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-  border-radius: 50%;
-  font-size: 18px;
-  transition: all 0.3s ease;
+.switch-pointer input {
   cursor: pointer;
 }
 
-.profile-icon-placeholder:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  transform: scale(1.05);
+.switch-pointer {
+  margin: 0;
 }
+
+
 
 /* Mobile responsive styles */
 @media (max-width: 768px) {
