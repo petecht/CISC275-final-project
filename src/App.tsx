@@ -1,34 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles/App.css';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Quiz from './pages/Quiz';
-import { Form, Button } from 'react-bootstrap';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
-let keyData = "";
 const saveKeyData = "MYKEY";
-const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
-if (prevKey !== null) {
-  keyData = JSON.parse(prevKey);
-}
+const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspec
 
 function App() {
-  const [key, setKey] = useState<string>(keyData); //for api key input
-  const [isKeySubmitted, setIsKeySubmitted] = useState<boolean>(prevKey !== null);
-  
-  //sets the local storage item to the api key the user inputed
-  function handleSubmit() {
-    localStorage.setItem(saveKeyData, JSON.stringify(key));
-    setIsKeySubmitted(true);
-    // window.location.reload(); // Removed reload as we'll handle state within React
-  }
-
-  //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
-  function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
-    setKey(event.target.value);
-  }
 
   const basicQuestions: string[] = [
     'Do you prefer working with people or working alone?',
@@ -83,7 +64,7 @@ function App() {
         <Navbar />
         <div className="content">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home saveKeyData={saveKeyData} prevKey={prevKey}/>} />
             <Route path="/basic-quiz" element={<Quiz quizType={'Basic'} questions={basicQuestions} options={basicOptions} description={basicDescription}/>} />
             <Route path="/detailed-quiz" element={<Quiz quizType={'Detailed'} questions={detailedQuestions} options={detailedOptions} description={detailedDescription}/>} />
           </Routes>
