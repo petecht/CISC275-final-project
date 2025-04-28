@@ -223,4 +223,30 @@
   .career-header h4, .education-header h4 {
     font-size: 18px;
   }
+}
+
+.return-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.return-button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.return-button:hover {
+  background-color: #357abd;
+}
+
+.return-button:active {
+  background-color: #2a5f9e;
 } 
