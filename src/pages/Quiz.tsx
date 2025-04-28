@@ -3,6 +3,7 @@ import '../styles/Quiz.css';
 import { useQuiz } from '../components/useQuiz';
 import ResultSection from './Results';
 import CareerReport from './CareerReport';
+import BasicCareerReport from './BasicCareerReport';
 
 function Quiz({quizType, questions, options, description}: {quizType: string, questions: string[], options: string[][], description: string}) {
   const {
@@ -11,16 +12,17 @@ function Quiz({quizType, questions, options, description}: {quizType: string, qu
     results,
     totalSteps,
     handleOptionSelect,
+    isOptionSelected,
     getOptionClass,
     handleNext,
     handlePrevious,
     handleSubmit,
     careerReport,
+    basicCareerReport,
     isLoading
-  } = useQuiz(questions.length);
+  } = useQuiz(questions.length, quizType);
 
   const renderQuestion = () => {
-
     const idx = currentStep - 1;
     return (
       <div className="question-container">
@@ -40,12 +42,15 @@ function Quiz({quizType, questions, options, description}: {quizType: string, qu
     );
   };
 
+  // Determine if we should show the report section
+  const showReport = isLoading || careerReport || basicCareerReport;
+
   return (
     <div className="quiz-container fade-in">
       <h1>{quizType} Career Quiz</h1>
       <p>{description}</p>
 
-      {!careerReport && !isLoading && (
+      {!showReport && (
         <>
           <div className="progress-bar">
             <div className="progress" style={{ width: `${(currentStep / totalSteps) * 100}%` }}></div>
@@ -79,11 +84,23 @@ function Quiz({quizType, questions, options, description}: {quizType: string, qu
         </>
       )}
 
-      {(careerReport || isLoading) && (
-        <CareerReport report={careerReport} isLoading={isLoading} />
+      {isLoading && quizType === 'Detailed' && (
+        <CareerReport report={null} isLoading={true} />
       )}
 
-      {results.length > 0 && !careerReport && !isLoading && (
+      {isLoading && quizType === 'Basic' && (
+        <BasicCareerReport report={null} isLoading={true} />
+      )}
+
+      {careerReport && quizType === 'Detailed' && (
+        <CareerReport report={careerReport} isLoading={false} />
+      )}
+
+      {basicCareerReport && quizType === 'Basic' && (
+        <BasicCareerReport report={basicCareerReport} isLoading={false} />
+      )}
+
+      {results.length > 0 && !showReport && (
         <ResultSection displayResults={true} results={results} />
       )}
     </div>

@@ -26,11 +26,25 @@ export interface CareerReport {
   recommendedResources: string[];
 }
 
-export function useQuiz(totalSteps: number) {
+export interface BasicCareerReport {
+  topCareers: {
+    title: string;
+    description: string;
+    requiredEducation: string[];
+    keySkills: string[];
+    fitScore: number;
+  }[];
+  strengths: string[];
+  workEnvironmentPreferences: string[];
+  learningPathways: string[];
+}
+
+export function useQuiz(totalSteps: number, quizType: string) {
   const [answers, setAnswers] = useState<QuestionAnswer[]>([]);
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [results, setResults] = useState<ChatMessage[]>([]);
   const [careerReport, setCareerReport] = useState<CareerReport | null>(null);
+  const [basicCareerReport, setBasicCareerReport] = useState<BasicCareerReport | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleOptionSelect = (questionId: number, answer: string) => {
@@ -78,9 +92,11 @@ export function useQuiz(totalSteps: number) {
     setIsLoading(true);
   
     const answersText = answers.map((a, i) => `Q${i + 1}: ${a.answer}`).join('\n');
-    const userMessage: ChatMessage = {
-      role: 'user',
-      content: `Based on these quiz answers, generate a comprehensive career report in JSON format. 
+    
+    let userMessageContent = '';
+    
+    if (quizType === 'Detailed') {
+      userMessageContent = `Based on these DETAILED quiz answers, generate a comprehensive career report in JSON format. 
 
 For the analysis:
 1. Provide 3-5 recommended careers based on the personality traits indicated by the answers
@@ -131,11 +147,56 @@ Format the response as valid JSON exactly matching this structure:
   ]
 }
 
-Make sure all numeric values are actual numbers, not strings, and that all descriptions are detailed enough to be genuinely helpful.
+Make sure all numeric values are actual numbers, not strings, and that all descriptions are detailed enough to be genuinely helpful.`;
+    } else {
+      // Basic quiz format
+      userMessageContent = `Based on these BASIC quiz answers, generate a simplified career report in JSON format.
+
+This should be more focused on general career directions rather than specific details:
+1. Provide 3-4 top career matches based on the personality traits and preferences shown
+2. Include key strengths derived from answers
+3. Suggest work environment preferences
+4. Suggest general learning pathways
+
+Format the response as valid JSON exactly matching this structure:
+{
+  "topCareers": [
+    {
+      "title": "Career Field",
+      "description": "Brief overview of what this career involves and why it matches the quiz taker",
+      "requiredEducation": ["General education path 1", "General education path 2"],
+      "keySkills": ["Skill 1", "Skill 2", "Skill 3"],
+      "fitScore": 85
+    }
+  ],
+  "strengths": [
+    "You seem to be good at working with people",
+    "You show creative problem-solving abilities",
+    "You value structure and organization"
+  ],
+  "workEnvironmentPreferences": [
+    "You might thrive in collaborative settings",
+    "You appear to prefer a balance between creativity and structure",
+    "A moderate-paced environment may suit you best"
+  ],
+  "learningPathways": [
+    "Consider exploring courses in interpersonal communication",
+    "Look into both creative and analytical fields",
+    "Explore opportunities that balance independence with teamwork"
+  ]
+}
+
+Make sure the fitScore is a number between 0-100 representing how well the career matches the quiz answers.`;
+    }
+    
+    const userMessage: ChatMessage = {
+      role: 'user',
+      content: `${userMessageContent}
       
 Here are the quiz answers:
 ${answersText}`,
     };
+    
     setResults(prev => [...prev, userMessage]);
   
     try {
@@ -154,8 +215,14 @@ ${answersText}`,
   
       if (reply) {
         try {
-          const parsedReport = JSON.parse(reply) as CareerReport;
-          setCareerReport(parsedReport);
+          if (quizType === 'Detailed') {
+            const parsedReport = JSON.parse(reply) as CareerReport;
+            setCareerReport(parsedReport);
+          } else {
+            const parsedReport = JSON.parse(reply) as BasicCareerReport;
+            setBasicCareerReport(parsedReport);
+          }
+          
           setResults(prev => [...prev, { 
             role: 'assistant', 
             content: "Career report generated successfully!" 
@@ -189,6 +256,8 @@ ${answersText}`,
     handlePrevious,
     handleSubmit,
     careerReport,
-    isLoading
+    basicCareerReport,
+    isLoading,
+    quizType
   };
 }
