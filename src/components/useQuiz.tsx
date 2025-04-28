@@ -103,6 +103,7 @@ For the analysis:
 2. For each career, include detailed salary information with concrete numbers (min/max/median) for better visualization
 3. For job outlook, provide clear growth percentages when possible (e.g., "15% growth expected over next decade")
 4. Include education paths with real cost estimates and timeframes
+5. For institutions, list actual universities and colleges that offer the relevant programs (do not include online programs)
 
 Format the response as valid JSON exactly matching this structure:
 {
@@ -127,7 +128,7 @@ Format the response as valid JSON exactly matching this structure:
       "degree": "Bachelor of Science in XYZ",
       "description": "This program focuses on developing skills in...",
       "timeToComplete": "4 years full-time",
-      "institutions": ["University A", "College B", "Online Program C"],
+      "institutions": ["University of California, Berkeley", "Stanford University", "Massachusetts Institute of Technology"],
       "cost": { 
         "min": 10000, 
         "max": 80000, 
@@ -147,7 +148,7 @@ Format the response as valid JSON exactly matching this structure:
   ]
 }
 
-Make sure all numeric values are actual numbers, not strings, and that all descriptions are detailed enough to be genuinely helpful.`;
+Make sure all numeric values are actual numbers, not strings, and that all descriptions are detailed enough to be genuinely helpful. For institutions, list actual universities and colleges that offer the relevant programs, and do not include online programs.`;
     } else {
       // Basic quiz format
       userMessageContent = `Based on these BASIC quiz answers, generate a simplified career report in JSON format.
