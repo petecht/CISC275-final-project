@@ -76,29 +76,6 @@ function App() {
   ];
   const detailedDescription: string = 'Answer these more specific questions for precise career recommendations.';
 
-
-  // If key is not submitted yet, show the API key input form
-  if (!isKeySubmitted) {
-    return (
-      <div className="api-key-container">
-        <h1>Career Quiz Application</h1>
-        <p>Please enter your API key to continue</p>
-        <Form>
-          <Form.Label>API Key:</Form.Label>
-          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-          <br></br>
-          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-        </Form>
-        <div className="team-info">
-          <p>Ryan Koller</p>
-          <p>Peter Chapman</p>
-          <p>Shaurya Kumar</p>
-          <p>Paul Edelman</p>
-        </div>
-      </div>
-    );
-  }
-
   // Main application with routing
   return (
     <Router>
