@@ -21,6 +21,11 @@ function Quiz({quizType, questions, options, description}: {quizType: string, qu
     isLoading
   } = useQuiz(questions.length, quizType);
 
+  const handleReturn = () => {
+    // Reset the quiz state by reloading the page
+    window.location.reload();
+  };
+
   const renderQuestion = () => {
     const idx = currentStep - 1;
     return (
@@ -84,19 +89,19 @@ function Quiz({quizType, questions, options, description}: {quizType: string, qu
       )}
 
       {isLoading && quizType === 'Detailed' && (
-        <CareerReport report={null} isLoading={true} />
+        <CareerReport report={null} isLoading={true} onReturn={handleReturn} />
       )}
 
       {isLoading && quizType === 'Basic' && (
-        <BasicCareerReport report={null} isLoading={true} />
+        <BasicCareerReport report={null} isLoading={true} onReturn={handleReturn} />
       )}
 
       {careerReport && quizType === 'Detailed' && (
-        <CareerReport report={careerReport} isLoading={false} />
+        <CareerReport report={careerReport} isLoading={false} onReturn={handleReturn} />
       )}
 
       {basicCareerReport && quizType === 'Basic' && (
-        <BasicCareerReport report={basicCareerReport} isLoading={false} />
+        <BasicCareerReport report={basicCareerReport} isLoading={false} onReturn={handleReturn} />
       )}
 
       {results.length > 0 && !showReport && (
