@@ -86,4 +86,22 @@
 
 .team-info p {
   margin: 5px 0;
-} 
+}
+
+/* ---- dark-mode overrides ---- */
+body.dark-mode .content {
+  background-color: #1c1e21;   /* same gray used on Home page */
+}
+
+body.dark-mode .app {
+  color: #e5e5e5;
+}
+
+body.dark-mode .api-key-container {
+  background: #1c1e21;
+}
+
+body.dark-mode .team-info {
+  background: #2b2d31;
+  color: #e5e5e5;
+}

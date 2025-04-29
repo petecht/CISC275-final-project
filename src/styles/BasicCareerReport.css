@@ -34,7 +34,6 @@
   padding-bottom: 5px;
 }
 
-/* Career Cards */
 .basic-career-card {
   background-color: white;
   border-radius: 8px;
@@ -84,7 +83,6 @@
   line-height: 1.5;
 }
 
-/* Fit Score */
 .fit-score-container {
   margin-bottom: 20px;
 }
@@ -109,7 +107,6 @@
   transition: width 1s ease-in-out;
 }
 
-/* Skills Tags */
 .skills-tags {
   display: flex;
   flex-wrap: wrap;
@@ -133,7 +130,6 @@
   transform: translateY(-2px);
 }
 
-/* Lists */
 .basic-list {
   list-style-type: none;
   padding-left: 0;
@@ -147,7 +143,6 @@
   border-left: 3px solid #4CA1AF;
 }
 
-/* Education paths */
 .education-paths ul {
   padding-left: 20px;
 }
@@ -162,7 +157,6 @@
   font-size: 16px;
 }
 
-/* Insights container for 2-column layout */
 .insights-container {
   display: flex;
   gap: 20px;
@@ -174,7 +168,6 @@
   margin-bottom: 0;
 }
 
-/* Learning pathways */
 .learning-pathways {
   display: flex;
   flex-wrap: wrap;
@@ -209,7 +202,6 @@
   flex: 1;
 }
 
-/* Loading state */
 .basic-report-loading {
   display: flex;
   flex-direction: column;
@@ -229,21 +221,14 @@
   margin-bottom: 20px;
 }
 
-/* Animations */
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
 
 @keyframes slideDown {
-  0% { 
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  100% { 
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes spin {
@@ -251,18 +236,56 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
-  .basic-career-report {
-    padding: 15px;
-  }
-  
-  .insights-container {
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .pathway-card {
-    flex: 1 1 100%;
-  }
-} 
+  .basic-career-report { padding: 15px; }
+  .insights-container { flex-direction: column; gap: 20px; }
+  .pathway-card { flex: 1 1 100%; }
+}
+
+body.dark-mode .basic-career-report {
+  background-color: #2b2d31;
+  color: #e5e5e5;
+}
+
+body.dark-mode .basic-career-report h2,
+body.dark-mode .basic-report-section h3,
+body.dark-mode .basic-career-header h4,
+body.dark-mode .fit-score-label,
+body.dark-mode .education-paths h5,
+body.dark-mode .key-skills h5 {
+  color: #f5f7fa;
+}
+
+body.dark-mode .basic-report-section,
+body.dark-mode .basic-career-card,
+body.dark-mode .basic-list li,
+body.dark-mode .pathway-card {
+  background-color: #3a3d42;
+  border-color: #4a4d52;
+}
+
+body.dark-mode .basic-career-header {
+  background: linear-gradient(90deg, #3a3d42, #4a4d52);
+}
+
+body.dark-mode .basic-career-details {
+  border-top: 1px solid #4a4d52;
+}
+
+body.dark-mode .skill-tag {
+  background-color: #4a4d52;
+  color: #e5e5e5;
+}
+
+body.dark-mode .skill-tag:hover {
+  background-color: #4CA1AF;
+  color: #ffffff;
+}
+
+body.dark-mode .fit-score-meter {
+  background-color: #4a4d52;
+}
+
+body.dark-mode .fit-score-fill {
+  background: linear-gradient(90deg, #4ca1af, #2c3e50);
+}

@@ -29,7 +29,6 @@
   padding-left: 10px;
 }
 
-/* Career and Education Cards */
 .career-card, .education-card {
   background-color: #f8f9fa;
   border-radius: 8px;
@@ -74,7 +73,6 @@
   animation: slideDown 0.3s ease;
 }
 
-/* Charts and Visualizations */
 .bar-container {
   margin: 20px 0;
 }
@@ -140,7 +138,6 @@
   color: #666;
 }
 
-/* Lists */
 .insights-list, .resources-list {
   list-style-type: none;
   padding-left: 0;
@@ -168,7 +165,6 @@
   font-size: 16px;
 }
 
-/* Loading State */
 .career-report-loading {
   display: flex;
   flex-direction: column;
@@ -188,21 +184,14 @@
   margin-bottom: 20px;
 }
 
-/* Animations */
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
 
 @keyframes slideDown {
-  0% { 
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  100% { 
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes spin {
@@ -210,19 +199,10 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
-  .career-report {
-    padding: 15px;
-  }
-  
-  .chart-labels {
-    font-size: 12px;
-  }
-  
-  .career-header h4, .education-header h4 {
-    font-size: 18px;
-  }
+  .career-report { padding: 15px; }
+  .chart-labels { font-size: 12px; }
+  .career-header h4, .education-header h4 { font-size: 18px; }
 }
 
 .return-button-container {
@@ -256,4 +236,58 @@
 .return-button:active {
   transform: translateY(1px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-} 
+}
+
+body.dark-mode .career-report {
+  background-color: #2b2d31;
+  color: #e5e5e5;
+}
+
+body.dark-mode .career-report h2,
+body.dark-mode .report-section h3,
+body.dark-mode .career-header h4,
+body.dark-mode .education-header h4,
+body.dark-mode .chart-title,
+body.dark-mode .required-education h5,
+body.dark-mode .education-time h5,
+body.dark-mode .education-institutions h5,
+body.dark-mode .job-demand h5 {
+  color: #f5f7fa;
+}
+
+body.dark-mode .career-card,
+body.dark-mode .education-card,
+body.dark-mode .insights-list li,
+body.dark-mode .resources-list li {
+  background-color: #3a3d42;
+  border-color: #4a4d52;
+}
+
+body.dark-mode .career-header,
+body.dark-mode .education-header {
+  background: linear-gradient(90deg, #3a3d42, #4a4d52);
+}
+
+body.dark-mode .career-details,
+body.dark-mode .education-details {
+  border-top: 1px solid #4a4d52;
+}
+
+body.dark-mode .chart-labels,
+body.dark-mode .outlook-label {
+  color: #d0d0d0;
+}
+
+body.dark-mode .bar-chart,
+body.dark-mode .outlook-meter {
+  background-color: #4a4d52;
+}
+
+body.dark-mode .median-marker {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+body.dark-mode .return-button {
+  background: linear-gradient(135deg, #4CA1AF 0%, #2C3E50 100%);
+}
