@@ -34,7 +34,7 @@ function ResultContainer({
                 </div>
               ))
             ) : (
-              <p>No results to display.</p>
+              <p>No results to display. Please try again. </p>
             )}
           </div>
         )}
