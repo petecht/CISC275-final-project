@@ -19,6 +19,10 @@ function Quiz({quizType, questions, options, description}: {quizType: string, qu
     isLoading
   } = useQuiz(questions.length);
 
+  const isValidIndex = currentStep > 0 && currentStep <= questions.length;
+  const questionText = isValidIndex ? questions[currentStep - 1] : '[Invalid question]';
+  const questionOptions = isValidIndex ? options[currentStep - 1] : [];
+
   const renderQuestion = () => {
 
     const idx = currentStep - 1;
