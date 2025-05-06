@@ -5,9 +5,10 @@ import '../styles/CareerReport.css';
 interface CareerReportProps {
   report: CareerReportType | null;
   isLoading: boolean;
+  onReturn?: () => void;
 }
 
-const CareerReport: React.FC<CareerReportProps> = ({ report, isLoading }) => {
+const CareerReport: React.FC<CareerReportProps> = ({ report, isLoading, onReturn }) => {
   const [expandedCareer, setExpandedCareer] = useState<number | null>(null);
   const [expandedEducation, setExpandedEducation] = useState<number | null>(null);
 
@@ -220,6 +221,14 @@ const CareerReport: React.FC<CareerReportProps> = ({ report, isLoading }) => {
           ))}
         </ul>
       </section>
+
+      {onReturn && (
+        <div className="return-button-container">
+          <button className="return-button" onClick={onReturn}>
+            Return to Quizzes
+          </button>
+        </div>
+      )}
     </div>
   );
 };
