@@ -79,6 +79,19 @@
     box-shadow: 0 6px 20px rgba(76, 161, 175, 0.4);
 }
 
+.enter-api-key-button:focus,
+.enter-api-key-button:active {
+    color: #333;
+    background-color: white;
+    box-shadow: 0 6px 20px rgba(76, 161, 175, 0.4);
+    outline: none;
+    border: none;
+}
+
+.enter-api-key-button:focus-visible {
+    outline: none;
+}
+
 .names {
     align-self: center;
     display: flex;

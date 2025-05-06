@@ -16,7 +16,8 @@ function Footer({saveKeyData, prevKey} : {saveKeyData: string, prevKey: string |
     //sets the local storage item to the api key the user inputed
     function handleSubmit() {
         localStorage.setItem(saveKeyData, JSON.stringify(key));
-    // window.location.reload(); // Removed reload as we'll handle state within React
+        setEnterAPIKey(false);
+        window.alert("Your API key was submitted!");
     }
     function handleEnterAPIKey() {
         setEnterAPIKey(!enterAPIKey);
