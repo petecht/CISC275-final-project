@@ -1,0 +1,116 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.api-key-form {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px 0;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.api-key-form .control {
+    background-color: whitesmoke;
+}
+
+.Submit-Button {
+    background: linear-gradient(90deg, #2C3E50, #4CA1AF);
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 161, 175, 0.3);
+    margin-top: 10px;
+}
+
+.Submit-Button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 161, 175, 0.4);
+}
+
+.team-info {
+    color: white;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    background: linear-gradient(90deg, #2C3E50, #4CA1AF);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+}
+
+.team-info p {
+    margin: 5px 0;
+} 
+
+.enter-api-key-button {
+    background-color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 161, 175, 0.3);
+    margin-top: 10px;
+    position: absolute;
+    left: 3%;
+    color: #333;
+}
+
+.enter-api-key-button:hover {
+    color: #333;
+    background-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 161, 175, 0.4);
+}
+
+.names {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    gap: 75px;
+    font-size: large;
+    font-weight:500;
+}
+
+
+body.dark-mode .footer {
+    background: #1c1e21;
+}
+
+body.dark-mode .api-key-form {
+    background: #2b2d31;
+}
+
+body.dark-mode .Submit-Button {
+    background: linear-gradient(90deg, #4CA1AF, #2C3E50);
+    box-shadow: none;
+}
+
+body.dark-mode .enter-api-key-button {
+    background: #2b2d31;
+    color: white;
+    box-shadow: none;
+}
+
+body.dark-mode .api-key-form .control {
+    background-color: #3a3d42;
+    border-color: #4a4d52;
+    color: #e5e5e5;
+}

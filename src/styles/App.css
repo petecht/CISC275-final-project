@@ -6,102 +6,18 @@
   margin: 0 auto;
   padding: 0;
   color: #333;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 .content {
   padding: 0;
-  background-color: #f5f8fa;
   min-height: calc(100vh - 70px);
 }
 
-.api-key-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  padding: 40px 20px;
-  text-align: center;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
-.api-key-container h1 {
-  font-size: 40px;
-  margin-bottom: 20px;
-  color: #2C3E50;
-  font-weight: 700;
-}
-
-.api-key-container p {
-  font-size: 18px;
-  margin-bottom: 30px;
-  color: #555;
-  max-width: 600px;
-}
-
-.api-key-container form {
-  width: 100%;
-  max-width: 400px;
-  margin: 20px 0;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.api-key-container form label {
-  font-weight: 500;
-  color: #2C3E50;
-  margin-bottom: 10px;
-  display: block;
-  text-align: left;
-}
-
-.Submit-Button {
-  background: linear-gradient(90deg, #2C3E50, #4CA1AF) !important;
-  border: none !important;
-  padding: 12px 25px !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  transition: all 0.3s ease !important;
-  box-shadow: 0 4px 15px rgba(76, 161, 175, 0.3) !important;
-  margin-top: 10px !important;
-}
-
-.Submit-Button:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(76, 161, 175, 0.4) !important;
-}
-
-.team-info {
-  margin-top: 60px;
-  color: #666;
-  font-size: 14px;
-  line-height: 1.5;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.team-info p {
-  margin: 5px 0;
-}
-
-/* ---- dark-mode overrides ---- */
 body.dark-mode .content {
   background-color: #1c1e21;   /* same gray used on Home page */
 }
 
 body.dark-mode .app {
-  color: #e5e5e5;
-}
-
-body.dark-mode .api-key-container {
-  background: #1c1e21;
-}
-
-body.dark-mode .team-info {
-  background: #2b2d31;
   color: #e5e5e5;
 }

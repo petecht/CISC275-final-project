@@ -5,7 +5,6 @@
   align-items: center;
   padding: 40px 20px;
   min-height: calc(100vh - 64px);
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 .quiz-content {
@@ -99,28 +98,6 @@
   padding: 0 15px;
 }
 
-.api-key-form {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.Submit-Button {
-  width: fit-content;
-}
-
-.team-info {
-  width: 33%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  color: black;
-}
-
 /* dark-mode overrides */
 body.dark-mode .home-container {
   background: #1c1e21;
@@ -149,9 +126,4 @@ body.dark-mode .quiz-button::before {
 body.dark-mode .quiz-button:hover {
   color: #c3cfe2;
   box-shadow: 0 10px 40px rgba(76, 161, 175, 0.15);
-}
-
-body.dark-mode .team-info {
-  background-color: #2b2d31;
-  color: #e5e5e5;
 }
