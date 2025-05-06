@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2% 0 0 0;
 }
 
 .api-key-form {
@@ -20,34 +19,27 @@
     background-color: white;
 }
 
-.api-key-container form label {
-    font-weight: 500;
-    color: #2C3E50;
-    margin-bottom: 10px;
-}
-
 .api-key-form .control {
     background-color: whitesmoke;
 }
 
 .Submit-Button {
-    background: linear-gradient(90deg, #2C3E50, #4CA1AF) !important;
-    border: none !important;
-    padding: 12px 25px !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    transition: all 0.3s ease !important;
-    box-shadow: 0 4px 15px rgba(76, 161, 175, 0.3) !important;
-    margin-top: 10px !important;
+    background: linear-gradient(90deg, #2C3E50, #4CA1AF);
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 161, 175, 0.3);
+    margin-top: 10px;
 }
 
 .Submit-Button:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px rgba(76, 161, 175, 0.4) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 161, 175, 0.4);
 }
 
 .team-info {
-    margin-top: 60px;
     color: white;
     font-size: 14px;
     line-height: 1.5;
@@ -67,21 +59,24 @@
 } 
 
 .enter-api-key-button {
-    background: linear-gradient(90deg, #8b8c8e, #a8acb0) !important;
-    border: none !important;
-    padding: 12px 25px !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    transition: all 0.3s ease !important;
-    box-shadow: 0 4px 15px rgba(76, 161, 175, 0.3) !important;
-    margin-top: 10px !important;
+    background-color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 161, 175, 0.3);
+    margin-top: 10px;
     position: absolute;
     left: 3%;
+    color: #333;
 }
 
 .enter-api-key-button:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px rgba(76, 161, 175, 0.4) !important;
+    color: #333;
+    background-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 161, 175, 0.4);
 }
 
 .names {
@@ -92,4 +87,30 @@
     gap: 75px;
     font-size: large;
     font-weight:500;
+}
+
+
+body.dark-mode .footer {
+    background: #1c1e21;
+}
+
+body.dark-mode .api-key-form {
+    background: #2b2d31;
+}
+
+body.dark-mode .Submit-Button {
+    background: linear-gradient(90deg, #4CA1AF, #2C3E50);
+    box-shadow: none;
+}
+
+body.dark-mode .enter-api-key-button {
+    background: #2b2d31;
+    color: white;
+    box-shadow: none;
+}
+
+body.dark-mode .api-key-form .control {
+    background-color: #3a3d42;
+    border-color: #4a4d52;
+    color: #e5e5e5;
 }

@@ -35,7 +35,7 @@ function Footer({saveKeyData, prevKey} : {saveKeyData: string, prevKey: string |
             <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
         </Form> }
       <div className="team-info">
-            <Button className='enter-api-key-button' onClick={handleEnterAPIKey}>ChangeAPIKey</Button>
+            <Button className='enter-api-key-button' onClick={handleEnterAPIKey}>Change API Key</Button>
             <div className='names'>
               <p>Ryan Koller</p>
               <p>Peter Chapman</p>

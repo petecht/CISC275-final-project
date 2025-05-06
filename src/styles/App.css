@@ -13,3 +13,11 @@
   padding: 0;
   min-height: calc(100vh - 70px);
 }
+
+body.dark-mode .content {
+  background-color: #1c1e21;   /* same gray used on Home page */
+}
+
+body.dark-mode .app {
+  color: #e5e5e5;
+}
