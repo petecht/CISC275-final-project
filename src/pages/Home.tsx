@@ -9,6 +9,7 @@ function Home() {
       <div className="quiz-content">
         <h1 className="quiz-title">Career Quiz</h1>
         <p className="quiz-description">
+          CareerQuiz is an app to help you determine what career path you would like to take. 
           Please select which type of career quiz you'd like to take below.
         </p>
         
