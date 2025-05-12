@@ -1,0 +1,20 @@
+.about-us-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #333;
+}
+
+.about-us-container h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 36px;
+  color: #2C3E50;
+}
+
+.about-us-container > p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 40px;
+  font-size: 18px;
+}
