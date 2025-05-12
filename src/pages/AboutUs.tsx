@@ -1,5 +1,5 @@
 import '../styles/AboutUs.css';
-import PeterPhoto from './images/PC_Professional_Photo.png';
+import PeterPhoto from './images/PCPhoto.png';
 
 function AboutUs(): JSX.Element {
     return <div className="about-us-container">
