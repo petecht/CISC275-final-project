@@ -49,6 +49,7 @@ function Navbar() {
         <Link to="/" className={isActiveLink('/')}>Home</Link>
         <Link to="/basic-quiz" className={isActiveLink('/basic-quiz')}>Basic Quiz</Link>
         <Link to="/detailed-quiz" className={isActiveLink('/detailed-quiz')}>Detailed Quiz</Link>
+        <Link to="/about-us" className={isActiveLink('/about-us')}>About Us</Link>
       </div>
       <div className="auth-section">
         <DarkModeSwitch />
