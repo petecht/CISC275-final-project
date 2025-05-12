@@ -18,3 +18,17 @@
   margin-bottom: 40px;
   font-size: 18px;
 }
+
+.about-us-container h3 {
+  color: #2C3E50;
+  font-size: 22px;
+  margin-bottom: 15px;
+  border-left: 4px solid #4CA1AF;
+  padding-left: 10px;
+}
+.profile-photo {
+  display: block;
+  margin: 20px auto;
+  max-width: 200px; 
+  border-radius: 8px;
+}
