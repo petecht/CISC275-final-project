@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Quiz from './pages/Quiz';
 import Footer from './components/Footer'
+import AboutUs from './pages/AboutUs';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 const saveKeyData = "MYKEY";
@@ -68,6 +69,7 @@ function App() {
             <Route path="/" element={<Home/>} />
             <Route path="/basic-quiz" element={<Quiz quizType={'Basic'} questions={basicQuestions} options={basicOptions} description={basicDescription}/>} />
             <Route path="/detailed-quiz" element={<Quiz quizType={'Detailed'} questions={detailedQuestions} options={detailedOptions} description={detailedDescription}/>} />
+            <Route path="/about-us" element={<AboutUs/>} />
           </Routes>
         </div>
         <Footer saveKeyData={saveKeyData} prevKey={prevKey}/>
