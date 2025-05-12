@@ -2,7 +2,7 @@ import '../styles/AboutUs.css';
 import PeterPhoto from '../images/PCphoto.png';
 import PaulPhoto from '../images/PEphoto.png';
 import RyanPhoto from '../images/RKphoto.png';
-import GOATphoto from '../images/GOATphoto.jpg';
+import ShauryaPhoto from '../images/SKphoto.png';
 
 function AboutUs(): JSX.Element {
     return <div className="about-us-container">
@@ -17,8 +17,8 @@ function AboutUs(): JSX.Element {
         <img className="profile-photo" src={RyanPhoto} alt="A pic of Ryan" />
         <p>LinkedIn: https://www.linkedin.com/in/ryan-koller-14792a209/</p>
         <h3>Shaurya Kumar</h3>
-        <img className="profile-photo" src={GOATphoto} alt="A pic of Shaurya" />
-        <p>LinkedIn: </p>
+        <img className="profile-photo" src={ShauryaPhoto} alt="A pic of Shaurya" />
+        <p>LinkedIn: https://www.linkedin.com/in/shauryak/</p>
     </div>;
 }
 
