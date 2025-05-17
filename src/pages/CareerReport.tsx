@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CareerReport as CareerReportType } from '../components/useQuiz';
 import '../styles/CareerReport.css';
 
+//props interface for the CareerReport component
 interface CareerReportProps {
   report: CareerReportType | null;
   isLoading: boolean;
@@ -9,9 +10,11 @@ interface CareerReportProps {
 }
 
 const CareerReport: React.FC<CareerReportProps> = ({ report, isLoading, onReturn }) => {
+  //using state to track which career and education item to expand on
   const [expandedCareer, setExpandedCareer] = useState<number | null>(null);
   const [expandedEducation, setExpandedEducation] = useState<number | null>(null);
 
+  // the loading icon spins while report is fetched
   if (isLoading) {
     return (
       <div className="career-report-loading">
@@ -21,14 +24,16 @@ const CareerReport: React.FC<CareerReportProps> = ({ report, isLoading, onReturn
     );
   }
 
+  //returns nothing if no data is available
   if (!report) {
     return null;
   }
 
+  //toggles expanded state for a given job
   const toggleCareer = (index: number) => {
     setExpandedCareer(expandedCareer === index ? null : index);
   };
-
+  //toggles expanded state for a given academic program
   const toggleEducation = (index: number) => {
     setExpandedEducation(expandedEducation === index ? null : index);
   };
@@ -38,6 +43,7 @@ const CareerReport: React.FC<CareerReportProps> = ({ report, isLoading, onReturn
     const range = max - min;
     const medianPosition = ((median - min) / range) * 100;
 
+    //visual bar chart using CSS styles
     return (
       <div className="salary-chart">
         <div className="chart-title">Salary Range</div>
@@ -111,12 +117,13 @@ const CareerReport: React.FC<CareerReportProps> = ({ report, isLoading, onReturn
   return (
     <div className="career-report">
       <h2>Your Personalized Career Report</h2>
-      
+      {/* Section: Recommended Careers */}
       <section className="report-section">
         <h3>Recommended Careers</h3>
         <div className="careers-container">
           {report.careers.map((career, index) => (
             <div key={index} className="career-card">
+              {/* Career title with toggleable details */}
               <div 
                 className="career-header" 
                 onClick={() => toggleCareer(index)}
@@ -126,11 +133,11 @@ const CareerReport: React.FC<CareerReportProps> = ({ report, isLoading, onReturn
                   &#9660;
                 </span>
               </div>
-              
+              {/* Expanded career details */}
               {expandedCareer === index && (
                 <div className="career-details">
                   <p className="career-description">{career.description}</p>
-                  
+                  {/* Education list */}
                   <div className="required-education">
                     <h5>Required Education:</h5>
                     <ul>
@@ -139,15 +146,15 @@ const CareerReport: React.FC<CareerReportProps> = ({ report, isLoading, onReturn
                       ))}
                     </ul>
                   </div>
-                  
+                  {/* Salary chart */}
                   {renderSalaryChart(
                     career.salaryRange.min, 
                     career.salaryRange.max, 
                     career.salaryRange.median
                   )}
-                  
+                  {/* Job outlook chart */}
                   {renderJobOutlookChart(career.jobOutlook.growth)}
-                  
+                  {/* Job demand description for the user*/}
                   <div className="job-demand">
                     <h5>Demand:</h5>
                     <p>{career.jobOutlook.demand}</p>
@@ -158,12 +165,13 @@ const CareerReport: React.FC<CareerReportProps> = ({ report, isLoading, onReturn
           ))}
         </div>
       </section>
-      
+      {/* section about education pathways */}
       <section className="report-section">
         <h3>Education Pathways</h3>
         <div className="education-container">
           {report.educationPaths.map((edu, index) => (
             <div key={index} className="education-card">
+              {/* Degree header with toggle */}
               <div 
                 className="education-header" 
                 onClick={() => toggleEducation(index)}
@@ -173,16 +181,18 @@ const CareerReport: React.FC<CareerReportProps> = ({ report, isLoading, onReturn
                   &#9660;
                 </span>
               </div>
-              
+              {/* Expanded education details */}
               {expandedEducation === index && (
                 <div className="education-details">
                   <p className="education-description">{edu.description}</p>
                   
+                  {/* the estimated time to complete the given academic program */}
                   <div className="education-time">
                     <h5>Time to Complete:</h5>
                     <p>{edu.timeToComplete}</p>
                   </div>
                   
+                  {/* list of institutions for the field of study */}
                   <div className="education-institutions">
                     <h5>Example Institutions:</h5>
                     <ul>
@@ -192,6 +202,7 @@ const CareerReport: React.FC<CareerReportProps> = ({ report, isLoading, onReturn
                     </ul>
                   </div>
                   
+                  {/* render the costs for this academic program */}
                   {renderEducationCostChart(
                     edu.cost.min, 
                     edu.cost.max, 
@@ -204,6 +215,7 @@ const CareerReport: React.FC<CareerReportProps> = ({ report, isLoading, onReturn
         </div>
       </section>
       
+      {/* section on Personality Insights */}
       <section className="report-section">
         <h3>Personality Insights</h3>
         <ul className="insights-list">
@@ -213,6 +225,7 @@ const CareerReport: React.FC<CareerReportProps> = ({ report, isLoading, onReturn
         </ul>
       </section>
       
+      {/* section on further recommended resources */}
       <section className="report-section">
         <h3>Recommended Resources</h3>
         <ul className="resources-list">
@@ -222,6 +235,7 @@ const CareerReport: React.FC<CareerReportProps> = ({ report, isLoading, onReturn
         </ul>
       </section>
 
+      {/* return to quiz selection phase */}
       {onReturn && (
         <div className="return-button-container">
           <button className="return-button" onClick={onReturn}>
