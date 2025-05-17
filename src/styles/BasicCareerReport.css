@@ -1,3 +1,8 @@
+/* Styles page for the Basic Career Report page
+  Some of this is LLM-generated code, as we did not want to spend too long
+  choosing an appealing color scheme. 
+*/
+
 .basic-career-report {
   max-width: 800px;
   margin: 30px auto;
@@ -13,7 +18,7 @@
   color: #2C3E50;
   margin-bottom: 25px;
   font-size: 28px;
-  border-bottom: 2px solid #4CA1AF;
+  border-bottom: 2px solid #4CA1AF; /*color chosen by LLM */
   padding-bottom: 10px;
 }
 
@@ -30,7 +35,7 @@
   font-size: 20px;
   margin-bottom: 15px;
   display: inline-block;
-  border-bottom: 2px solid #4CA1AF;
+  border-bottom: 2px solid #4CA1AF; /*color chosen by LLM */
   padding-bottom: 5px;
 }
 
@@ -102,7 +107,7 @@
 
 .fit-score-fill {
   height: 100%;
-  background: linear-gradient(90deg, #4ca1af, #2c3e50);
+  background: linear-gradient(90deg, #4ca1af, #2c3e50); /*colors chosen by LLM */
   border-radius: 10px;
   transition: width 1s ease-in-out;
 }
@@ -116,7 +121,7 @@
 
 .skill-tag {
   background-color: #e9ecef;
-  color: #2C3E50;
+  color: #2C3E50; /*color chosen by LLM */
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 14px;
@@ -125,7 +130,7 @@
 }
 
 .skill-tag:hover {
-  background-color: #4CA1AF;
+  background-color: #4CA1AF; /*color chosen by LLM */
   color: white;
   transform: translateY(-2px);
 }
@@ -140,7 +145,7 @@
   background-color: white;
   margin-bottom: 8px;
   border-radius: 6px;
-  border-left: 3px solid #4CA1AF;
+  border-left: 3px solid #4CA1AF; /*color chosen by LLM */
 }
 
 .education-paths ul {
@@ -152,7 +157,7 @@
 }
 
 .education-paths h5, .key-skills h5 {
-  color: #2C3E50;
+  color: #2C3E50; /*color chosen by LLM */
   margin-bottom: 10px;
   font-size: 16px;
 }
@@ -213,7 +218,7 @@
 
 .spinner {
   border: 4px solid #f3f3f3;
-  border-top: 4px solid #4CA1AF;
+  border-top: 4px solid #4CA1AF; /*color chosen by LLM */
   border-radius: 50%;
   width: 40px;
   height: 40px;
