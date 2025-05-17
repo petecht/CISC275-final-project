@@ -1,19 +1,25 @@
+/* Styles page for the Detailed Career Report page
+  A lot of this is LLM-generated code, as we were unsure of how to create a 
+  visually appealing career report page.
+*/
+
 .career-report {
   max-width: 800px;
   margin: 30px auto;
   padding: 25px;
-  background-color: white;
+  background-color: white; /* light background */
   border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  animation: fadeIn 0.5s ease;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* shadow */
+  animation: fadeIn 0.5s ease; /* fade in animation */
 }
 
+/* Career report title */
 .career-report h2 {
   text-align: center;
   color: #2C3E50;
   margin-bottom: 25px;
   font-size: 28px;
-  border-bottom: 2px solid #4CA1AF;
+  border-bottom: 2px solid #4CA1AF; /*color chosen by LLM */
   padding-bottom: 10px;
 }
 
@@ -21,34 +27,38 @@
   margin-bottom: 30px;
 }
 
+/* Section headings */
 .report-section h3 {
   color: #2C3E50;
   font-size: 22px;
   margin-bottom: 15px;
-  border-left: 4px solid #4CA1AF;
+  border-left: 4px solid #4CA1AF; /*color chosen by LLM */
   padding-left: 10px;
 }
 
+/* Career and education details */
 .career-card, .education-card {
   background-color: #f8f9fa;
   border-radius: 8px;
   margin-bottom: 15px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* hover effect */
   border: 1px solid #e9ecef;
 }
 
+/* hover effect for the cards */
 .career-card:hover, .education-card:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* header area for the expanded cards */
 .career-header, .education-header {
   padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  background: linear-gradient(90deg, #f8f9fa, #e9ecef);
+  background: linear-gradient(90deg, #f8f9fa, #e9ecef); /* gradient scheme */
 }
 
 .career-header h4, .education-header h4 {
@@ -57,16 +67,19 @@
   font-weight: 600;
 }
 
+/* expands the icon */
 .expand-icon {
   transition: transform 0.3s ease;
   color: #4CA1AF;
   font-size: 12px;
 }
 
+/* rotates the icon when expanded */
 .expand-icon.expanded {
   transform: rotate(180deg);
 }
 
+/* collapsable career and education sections */
 .career-details, .education-details {
   padding: 20px;
   border-top: 1px solid #e9ecef;
@@ -77,6 +90,7 @@
   margin: 20px 0;
 }
 
+/* bar background */
 .bar-chart {
   height: 20px;
   background-color: #e9ecef;
@@ -85,6 +99,7 @@
   overflow: hidden;
 }
 
+/* filled bar */
 .bar-fill {
   background: linear-gradient(90deg, #4CA1AF, #2C3E50);
   height: 100%;
@@ -92,10 +107,12 @@
   border-radius: 10px;
 }
 
+/* alternative fill */
 .cost-fill {
   background: linear-gradient(90deg, #2C3E50, #4CA1AF);
 }
 
+/* the marker for the median of the output */
 .median-marker {
   position: absolute;
   top: 0;
@@ -105,6 +122,7 @@
   border: 1px solid #333;
 }
 
+/* labels for the bar charts */
 .chart-labels {
   display: flex;
   justify-content: space-between;
@@ -113,12 +131,14 @@
   color: #666;
 }
 
+/* chart titles */
 .chart-title {
   font-weight: 600;
   color: #2C3E50;
   margin-bottom: 10px;
 }
 
+/* meter style for the career outlook */
 .outlook-meter {
   height: 20px;
   background-color: #e9ecef;
@@ -127,17 +147,20 @@
   margin: 15px 0;
 }
 
+/* the fill for the job outlook meter */
 .outlook-fill {
   height: 100%;
   background: linear-gradient(90deg, #ff9d6c, #ff7e5f);
   border-radius: 10px;
 }
 
+/* text label for the outputs */
 .outlook-label {
   font-size: 14px;
   color: #666;
 }
 
+/* list styles for both insights and career resources */
 .insights-list, .resources-list {
   list-style-type: none;
   padding-left: 0;
@@ -165,6 +188,7 @@
   font-size: 16px;
 }
 
+/* loading state styles */
 .career-report-loading {
   display: flex;
   flex-direction: column;
@@ -174,6 +198,7 @@
   text-align: center;
 }
 
+/* this is a spin animation while the results load */
 .spinner {
   border: 4px solid #f3f3f3;
   border-top: 4px solid #4CA1AF;
@@ -184,16 +209,19 @@
   margin-bottom: 20px;
 }
 
+/* fade in animation */
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
 
+/* slide down animation */
 @keyframes slideDown {
   0% { opacity: 0; transform: translateY(-10px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
+/* spin animation */
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -227,6 +255,7 @@
   letter-spacing: 0.5px;
 }
 
+/* hover state for return button */
 .return-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
@@ -243,6 +272,7 @@ body.dark-mode .career-report {
   color: #e5e5e5;
 }
 
+/* the adjusted colors for dark mode */
 body.dark-mode .career-report h2,
 body.dark-mode .report-section h3,
 body.dark-mode .career-header h4,
@@ -254,7 +284,7 @@ body.dark-mode .education-institutions h5,
 body.dark-mode .job-demand h5 {
   color: #f5f7fa;
 }
-
+/* adjusted cards for dark mode */
 body.dark-mode .career-card,
 body.dark-mode .education-card,
 body.dark-mode .insights-list li,
@@ -263,6 +293,7 @@ body.dark-mode .resources-list li {
   border-color: #4a4d52;
 }
 
+/* new headers for dark mode */
 body.dark-mode .career-header,
 body.dark-mode .education-header {
   background: linear-gradient(90deg, #3a3d42, #4a4d52);
