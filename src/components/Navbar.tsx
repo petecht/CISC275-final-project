@@ -3,6 +3,10 @@ import { Link, useLocation } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import '../styles/Navbar.css';
 
+/*
+  Unique element of our site: Dark mode vs Light mode;
+  uses state and a boolean to allow the user to switch back and forth
+*/
 function DarkModeSwitch(): JSX.Element {
   const [isDarkMode, setDarkMode] = useState<boolean>(false);
 
@@ -10,6 +14,9 @@ function DarkModeSwitch(): JSX.Element {
     setDarkMode(event.target.checked);
   }
 
+  /*
+  Adds amd removes the class based on the boolean.
+  */
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add('dark-mode');
@@ -34,12 +41,19 @@ function DarkModeSwitch(): JSX.Element {
   );
 }
 
+/*
+Navigation bar for the top of the application.
+Uses React Router to get the current URL path of the page.
+*/
 function Navbar() {
   const location = useLocation();
 
   const isActiveLink = (path: string) =>
     location.pathname === path ? 'nav-link active' : 'nav-link';
 
+  /* 
+  Link to home page first, then navigation links to other pages.
+  */
   return (
     <nav className="navbar">
       <div className="navbar-logo">

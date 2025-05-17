@@ -13,6 +13,9 @@ const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: 
 
 function App() {
 
+  /*
+  Seven basic questions for the user to answer
+  */
   const basicQuestions: string[] = [
     'Do you prefer working with people or working alone?',
     'Are you more interested in creative or analytical work?',
@@ -22,6 +25,9 @@ function App() {
     'Do you prefer leading others or executing tasks yourself?',
     'Which type of recognition motivates you most?',
   ];
+  /*
+  Matching options for each of the seven questions
+  */
   const basicOptions: string[][] = [
     ['With people', 'Alone', 'Both equally'],
     ['Creative', 'Analytical', 'Both equally'],
@@ -33,6 +39,9 @@ function App() {
   ];
   const basicDescription: string = 'Answer these simple questions to get career recommendations.';
 
+  /*
+  Ten detailed questions for the user to answer
+  */
   const detailedQuestions: string[] = [
     'On a scale of 1-5, how much do you enjoy problem-solving activities?',
     'Which environment do you prefer working in?',
@@ -45,6 +54,10 @@ function App() {
     'What is your ideal team size?',
     'What kind of training or learning style works best for you?'
   ];
+
+  /*
+  Matching options for each of the ten questions
+  */
   const detailedOptions: string[][] = [
     ['1 (Not at all)', '2', '3', '4', '5 (Very much)'],
     ['Office setting', 'Outdoors', 'Laboratory', 'Remote/home', 'Various locations'],
@@ -79,5 +92,3 @@ function App() {
 }
 
 export default App;
-
-// Added name: "Ryan Koller" (3/18/25)

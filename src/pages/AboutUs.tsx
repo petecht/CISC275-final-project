@@ -4,6 +4,13 @@ import PaulPhoto from '../images/PEphoto.png';
 import RyanPhoto from '../images/RKphoto.png';
 import ShauryaPhoto from '../images/SKphoto.png';
 
+
+/* 
+    This is the About Us page and function. It works with App.css
+    styles and the code is based on Task 3: HTML and CSS from CISC275.
+    When the user moves to the About Us page, each collaborator on the site
+    has an image, their name, and their LinkedIn page displayed. 
+*/
 function AboutUs(): JSX.Element {
     return <div className="about-us-container">
         <h1>Project Collaborators</h1>
