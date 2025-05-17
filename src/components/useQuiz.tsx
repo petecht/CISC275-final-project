@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { ChatMessage } from '../pages/Results';
 import OpenAI from 'openai';
 
+//Format for each quiz question
 export interface QuestionAnswer {
   questionId: number;
   answer: string;
 }
 
+//Structure for the detailed quiz results
 export interface CareerReport {
   careers: {
     title: string;
@@ -26,6 +28,7 @@ export interface CareerReport {
   recommendedResources: string[];
 }
 
+//Now the structure for the basic quiz results
 export interface BasicCareerReport {
   topCareers: {
     title: string;
@@ -40,11 +43,11 @@ export interface BasicCareerReport {
 }
 
 export function useQuiz(totalSteps: number, quizType: string) {
-  const [answers, setAnswers] = useState<QuestionAnswer[]>([]);
-  const [currentStep, setCurrentStep] = useState<number>(1);
-  const [results, setResults] = useState<ChatMessage[]>([]);
-  const [careerReport, setCareerReport] = useState<CareerReport | null>(null);
-  const [basicCareerReport, setBasicCareerReport] = useState<BasicCareerReport | null>(null);
+  const [answers, setAnswers] = useState<QuestionAnswer[]>([]); //answers to quiz
+  const [currentStep, setCurrentStep] = useState<number>(1); //current question in quiz
+  const [results, setResults] = useState<ChatMessage[]>([]); //results for the quiz
+  const [careerReport, setCareerReport] = useState<CareerReport | null>(null); //detailed report
+  const [basicCareerReport, setBasicCareerReport] = useState<BasicCareerReport | null>(null); //basic report
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleOptionSelect = (questionId: number, answer: string) => {
@@ -56,7 +59,7 @@ export function useQuiz(totalSteps: number, quizType: string) {
       return updated;
     });
   };
-
+  // Checks if a specific option is already selected
   const isOptionSelected = (questionId: number, answer: string) =>
     answers.some((a: QuestionAnswer) => a.questionId === questionId && a.answer === answer);
 
@@ -65,6 +68,7 @@ export function useQuiz(totalSteps: number, quizType: string) {
       ? 'option-button selected'
       : 'option-button';
 
+  // Advances to the next step in the quiz
   const handleNext = () => {
     if (currentStep < totalSteps) {
       setCurrentStep(prev => prev + 1);
@@ -72,6 +76,7 @@ export function useQuiz(totalSteps: number, quizType: string) {
     }
   };
 
+  //previous step in the quiz
   const handlePrevious = () => {
     if (currentStep > 1) {
       setCurrentStep(prev => prev - 1);
@@ -79,6 +84,7 @@ export function useQuiz(totalSteps: number, quizType: string) {
     }
   };
 
+  //submits quiz answers to source for answers
   const handleSubmit = async () => {
     const saveKey = 'MYKEY';
     const storedKey = localStorage.getItem(saveKey);
@@ -88,13 +94,15 @@ export function useQuiz(totalSteps: number, quizType: string) {
       alert("OpenAI API key not found in local storage.");
       return;
     }
-
+    
+    //Loading image is turned on once submitted
     setIsLoading(true);
   
     const answersText = answers.map((a, i) => `Q${i + 1}: ${a.answer}`).join('\n');
     
     let userMessageContent = '';
     
+    //Prepare the prompt depending on Quiz Type
     if (quizType === 'Detailed') {
       userMessageContent = `Based on these DETAILED quiz answers, generate a comprehensive career report in JSON format. 
 
@@ -198,6 +206,7 @@ Here are the quiz answers:
 ${answersText}`,
     };
     
+    //save the prompt to the user results history
     setResults(prev => [...prev, userMessage]);
   
     try {
@@ -207,9 +216,9 @@ ${answersText}`,
       });
   
       const completion = await openai.chat.completions.create({
-        model: "gpt-4o",
+        model: "gpt-4o", //use GPT-4o for the output
         messages: [userMessage],
-        response_format: { type: "json_object" }
+        response_format: { type: "json_object" } //structured JSON format
       });
   
       const reply = completion.choices?.[0]?.message?.content;
@@ -224,11 +233,13 @@ ${answersText}`,
             setBasicCareerReport(parsedReport);
           }
           
+          //notify the user that results were successfully generated
           setResults(prev => [...prev, { 
             role: 'assistant', 
             content: "Career report generated successfully!" 
           }]);
         } catch (parseError) {
+          //shows raw LLM output if it does not work
           console.error("Error parsing JSON response:", parseError);
           setResults(prev => [...prev, { 
             role: 'assistant', 
@@ -240,7 +251,7 @@ ${answersText}`,
       console.error("OpenAI API error:", error);
       alert("Failed to get a response from OpenAI.");
     } finally {
-      setIsLoading(false);
+      setIsLoading(false); //hide loading image again
     }
   };
   

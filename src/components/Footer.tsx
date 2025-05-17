@@ -4,6 +4,9 @@ import '../styles/Footer.css';
 import { Button } from 'react-bootstrap';
 import { useState } from 'react';
 
+/* 
+  Variable that temporarily stores key
+*/
 let keyData = "";
 function Footer({saveKeyData, prevKey} : {saveKeyData: string, prevKey: string | null}) {
     const [enterAPIKey, setEnterAPIKey] = useState<boolean>(prevKey === null);
@@ -13,12 +16,13 @@ function Footer({saveKeyData, prevKey} : {saveKeyData: string, prevKey: string |
 
     const [key, setKey] = useState<string>(keyData); //for api key input
     
-    //sets the local storage item to the api key the user inputed
+    //sets the local storage item to the api key the user inputted
     function handleSubmit() {
         localStorage.setItem(saveKeyData, JSON.stringify(key));
         setEnterAPIKey(false);
         window.alert("Your API key was submitted!");
     }
+    //toggles the API key input form
     function handleEnterAPIKey() {
         setEnterAPIKey(!enterAPIKey);
     }
@@ -35,6 +39,7 @@ function Footer({saveKeyData, prevKey} : {saveKeyData: string, prevKey: string |
             <br></br>
             <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
         </Form> }
+        {/* Footer content including team info and button to change API key */}
       <div className="team-info">
             <Button className='enter-api-key-button' onClick={handleEnterAPIKey}>Change API Key</Button>
             <div className='names'>
